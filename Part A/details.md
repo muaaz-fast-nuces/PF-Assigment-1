@@ -14,6 +14,7 @@ USA or UK would be unusual.
 3. Third, if too many transactions are made within a short period of time, this could also be a
 sign of fraud. For example, if more than three transactions occur within the same hour, the
 system should treat the extra transactions as suspicious.
+
 By applying these rules, the bank can provide a first level of protection for its customers. Any
 suspicious transactions identified by the system can be reviewed by the bank’s fraud team for
 further investigation. This approach allows the bank to reduce risks, protect customer accounts,
