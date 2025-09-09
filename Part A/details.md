@@ -52,3 +52,18 @@ they are not eligible.
 test, and if they are over 60 years of age. Ask the applicant if they have a medical fitness
 certificate or not. If they have the certificate, inform them that they are eligible for the
 license, otherwise they are not eligible.
+
+# Question 4
+
+A poker hand is represented as a sequence of exactly 5 integers, each in the range 1 to 13,
+where:
+• 1 represents Ace,
+• 2–10 represent cards numbered 2 through 10,
+• 11 represents Jack,
+• 12 represents Queen,
+• 13 represents King.
+A hand is said to be a full house if it contains:
+• three cards of one rank, and
+• two cards of a different rank.
+For example, the hand (1, 2, 1, 2, 1) is a full house because it contains three cards of rank 1 (Ace)
+and two cards of rank 2.
