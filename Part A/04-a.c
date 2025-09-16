@@ -1,76 +1,59 @@
 #include <stdio.h>
-int get_pocker_num(short int *num);
-int main(){
-    short int a =0 , b =0, c=0 , d=0, e=0 ; // initialize variables for 5 pocker hand
-    short int valid_input =0 ;
-    // Repetetion is not allowed therefore :
-    valid_input = get_pocker_num(&a);
-    if(valid_input==0) return 0; 
-    valid_input = get_pocker_num(&b);
-    if(valid_input==0) return 0;  
-    valid_input = get_pocker_num(&c);
-    if(valid_input==0) return 0; 
-    valid_input = get_pocker_num(&d);
-    if(valid_input==0)return 0; 
-    valid_input =get_pocker_num(&e);
-    if(valid_input==0)return 0; 
-
+int get_pocker_num(short int *num,int is_first);
+int main()
+{
+    short int a = 0, b = 0, c = 0, d = 0, e = 0; 
+    short int valid_input = 0;
     
+    valid_input = get_pocker_num(&a,1);
+    if (valid_input == 0)
+        return 0;
+    valid_input = get_pocker_num(&b,0);
+    if (valid_input == 0)
+        return 0;
+    valid_input = get_pocker_num(&c,0);
+    if (valid_input == 0)
+        return 0;
+    valid_input = get_pocker_num(&d,0);
+    if (valid_input == 0)
+        return 0;
+    valid_input = get_pocker_num(&e,0);
+    if (valid_input == 0)
+        return 0;
 
-    int countA = 1;
-    int countB = 1;
-    int countC = 1;
-    int countD = 1;
-    int countE = 1;
+    int cards_numbers[13] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+    int index_filed_cards[5] = {0, 0, 0, 0, 0};
 
-    if (a == b) countA++;
-    if (a == c) countA++;
-    if (a == d) countA++;
-    if (a == e) countA++;
+    cards_numbers[a] += 1;
+    index_filed_cards[0] = a;
+    cards_numbers[b] += 1;
+    index_filed_cards[1] = b;
+    cards_numbers[c] += 1;
+    index_filed_cards[2] = c;
+    cards_numbers[d] += 1;
+    index_filed_cards[3] = d;
+    cards_numbers[e] += 1;
+    index_filed_cards[4] = e;
 
-    if (b == a) countB = 0;
-    else {
-        if (b == c) countB++;
-        if (b == d) countB++;
-        if (b == e) countB++;
-    }
-
-    if (c == a || c == b) countC = 0;
-    else {
-        if (c == d) countC++;
-        if (c == e) countC++;
-    }
-
-    if (d == a || d == b || d == c) countD = 0;
-    else {
-        if (d == e) countD++;
-    }
-    if (e == a || e == b || e == c || e == d) countE = 0; 
-
-
-    if (countA==3||countB==3||countC==3||countD==3||countE==3){
-        if(countA==2||countB==2||countC==2||countD==2||countE==2){
-            printf(" Your poker hand is a full house");
+    if (cards_numbers[index_filed_cards[0]] == 3 || cards_numbers[index_filed_cards[1]] == 3 || cards_numbers[index_filed_cards[2]] == 3 || cards_numbers[index_filed_cards[3]] == 3 || cards_numbers[index_filed_cards[4]] == 3){
+        if (cards_numbers[index_filed_cards[0]] == 2 || cards_numbers[index_filed_cards[1]] == 2 || cards_numbers[index_filed_cards[2]] == 2 || cards_numbers[index_filed_cards[4]] == 2 || cards_numbers[index_filed_cards[4]] == 2){
+        printf("Your poker hand is a full house\n");
+            return 0;
         }
     }
-    printf("Your poker hand is not a full house");
-
-
-
-    
-    
-
-    return 0;
+        printf("Your poker hand is not a full house\n");
+        return 0;
 }
 
-int get_pocker_num(short int *num){
-    printf("Choose the poker hand by choosing exactly 5 numbers (1-13): \n ");
-    int is_valid = scanf("%hd",num);
-    
-    if(is_valid==0 || *num > 13 || *num<=0){
+int get_pocker_num(short int *num,int is_first){
+    if (is_first==1){printf("Choose the poker hand by choosing exactly 5 numbers (1-13):\n");}
+    int is_valid = scanf("%hd", num);
+
+    if (is_valid == 0 || *num > 13 || *num <= 0)
+    {
         printf("Invalid inputs , Choose integers between (1-13)\n");
         return 0;
-    } 
+    }
 
     return 1;
 }

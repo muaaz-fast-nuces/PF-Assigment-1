@@ -7,7 +7,7 @@ int main(){
     printf("Write the y cordinate : \n");
     scanf("%f",&y);
     if (x == 0 || y==0){
-        printf("The point (%.2f, %.2f) doesn't lie in any quadrant, it lies on the axis line.",x,y);
+        printf("The point (%.2f, %.2f) doesn't lie in any quadrant.",x,y);
     }
     else if (x > 0) {
         if (y > 0){
